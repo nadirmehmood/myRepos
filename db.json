@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "name": "nadir",
+      "email": "nadirmehmood00@gmail.com",
+      "password": "222002",
+      "role": "admin",
+      "phone": "03354096631",
+      "city": "kohat"
+    },
+    {
+      "name": "nadirkhan",
+      "email": "nadirmehmood11@gmail.com",
+      "password": "2",
+      "role": "user",
+      "phone": "1234",
+      "city": "kohat"
+    },
+    {
+      "name": "nadirmemood",
+      "email": "nadirmehmood22@gmail.com",
+      "password": "3",
+      "role": "user",
+      "phone": "5678",
+      "city": "kohat"
+    }
+  ],
+  "data": [
+    {
+      "id": 0,
+      "status": "active",
+      "title": "nadir",
+      "description": "description"
+    },
+    {
+      "id": 1,
+      "status": "deactive",
+      "title": "nadir",
+      "description": "description"
+    },
+    {
+      "id": 2,
+      "status": "active",
+      "title": "nadir",
+      "description": "description"
+    }
+  ]
+}

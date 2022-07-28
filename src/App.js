@@ -4,24 +4,23 @@ import "./App.css";
 import Login from "./Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
 import Transactions from "./pages/Transactions";
 import Users from "./pages/Users";
-import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 // import ProtectedRoutes from "./ProtectedRoutes";
+import "./Login.css";
+import Public from "./components/Public";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-
-          <Route element={<Navbar />}>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/Users" element={<Users />} />
-            <Route path="/Transactions" element={<Transactions />} />
-          </Route>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/public" element={<Public />} />
+          <Route path="/home" element={<Home />} />
+          <Route exact path="/home/Users" element={<Users />} />
+          <Route exact path="/home/Transactions" element={<Transactions />} />
         </Routes>
       </Router>
     </>

@@ -3,19 +3,17 @@ import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import SidebarData from "./SidebarData";
-import "./Navbar.css";
+import "./Home.css";
 import { IconContext } from "react-icons";
 
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// import Home from "./pages/Home";
-// import Transactions from "./pages/Transactions";
-// import Users from "./pages/Users";
-
-const Navbar = () => {
+const Home = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const logOut = () => {
+    sessionStorage.removeItem("data");
+  };
   return (
     <>
       <IconContext.Provider value={{ color: "red" }}>
@@ -31,7 +29,7 @@ const Navbar = () => {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
+            {/* {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
@@ -40,7 +38,25 @@ const Navbar = () => {
                   </Link>
                 </li>
               );
-            })}
+            })} */}
+            <li className="nav-text">
+              <Link to="/home/Users">
+                <FaIcons.FaUser />
+                <span>Users</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="/home/Transactions">
+                <FaIcons.FaDatabase />
+                <span>Transactions</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="/" onClick={logOut}>
+                <AiIcons.AiOutlineLogout />
+                <span>Logout</span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>
@@ -48,4 +64,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Home;

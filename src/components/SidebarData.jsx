@@ -4,20 +4,14 @@ import React from "react";
 
 const SidebarData = [
   {
-    title: "Home",
-    path: "/Home",
-    icon: <AiIcons.AiFillHome />,
-    cName: "nav-text",
-  },
-  {
     title: "Users",
-    path: "/Users",
+    path: "/home/Users",
     icon: <FaIcons.FaUser />,
     cName: "nav-text",
   },
   {
     title: "Transactions",
-    path: "/Transactions",
+    path: "/home/Transactions",
     icon: <FaIcons.FaDatabase />,
     cName: "nav-text",
   },

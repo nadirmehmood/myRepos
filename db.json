@@ -1,48 +1,165 @@
 {
   "users": [
     {
-      "name": "nadir",
+      "name": "Nadir ",
+      "email": "Sincere@apr.com",
+      "password": "5467",
+      "cfPassword": "5467",
+      "role": "user",
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "1659451255020"
+    },
+    {
+      "name": "Nadir Mehmood",
       "email": "nadirmehmood00@gmail.com",
       "password": "222002",
+      "cfPassword": "222002",
       "role": "admin",
       "phone": "03354096631",
-      "city": "kohat"
+      "city": "Karachi",
+      "id": "44"
     },
     {
-      "name": "nadirkhan",
+      "name": "Nadir Khan",
+      "email": "nadirmehmood@gmail.com",
+      "password": "22",
+      "cfPassword": "22",
+      "role": "admin",
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "38"
+    },
+    {
+      "name": "Nadir Mehmood",
       "email": "nadirmehmood11@gmail.com",
       "password": "2",
+      "cfPassword": "2",
       "role": "user",
-      "phone": "1234",
-      "city": "kohat"
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "4"
     },
     {
-      "name": "nadirmemood",
+      "name": "Nadir Afridi",
       "email": "nadirmehmood22@gmail.com",
       "password": "3",
+      "cfPassword": "3",
       "role": "user",
-      "phone": "5678",
-      "city": "kohat"
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "19"
+    },
+    {
+      "name": "Nadir TCSNNH",
+      "email": "nadirmehmood33@gmail.com",
+      "password": "4",
+      "cfPassword": "4",
+      "role": "user",
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "2022"
+    },
+    {
+      "name": "Nadir Mehmood",
+      "email": "nadirmehmood44@gmail.com",
+      "password": "5",
+      "cfPassword": "5",
+      "role": "user",
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "1659451877230"
+    },
+    {
+      "name": "Nadir ",
+      "email": "farooqnadeemriphah@gmail.com",
+      "password": "48686",
+      "cfPassword": "48686",
+      "phone": "1234567890",
+      "city": "Karachi",
+      "id": "1659452028751",
+      "role": "user"
+    },
+    {
+      "name": "Nadir ",
+      "email": "Sincerertrt@apr.com",
+      "password": "12345",
+      "cfPassword": "12345",
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "1659504271632",
+      "role": "user"
+    },
+    {
+      "name": "Nadir ",
+      "email": "Sinceererrre@apr.com",
+      "password": "1234",
+      "cfPassword": "1234",
+      "phone": "03354096631",
+      "city": "Karachi",
+      "id": "1659506302909",
+      "role": "user"
+    },
+    {
+      "name": "Nadir ",
+      "email": "Sinuiyilh@april.biz",
+      "password": "123",
+      "cfPassword": "123",
+      "phone": "2423",
+      "city": "Karachi",
+      "id": "1659509235372",
+      "role": "user"
     }
   ],
   "data": [
     {
-      "id": 348734987,
+      "id": "454",
+      "title": "tdfgh",
       "status": "active",
-      "title": "Hamad",
-      "description": "description"
+      "description": "dghghghghghghghghghghghghghghghgh"
     },
     {
-      "id": 324523523,
-      "status": "active",
-      "title": "Junaid",
-      "description": "description"
+      "id": "546",
+      "title": "dfgsdg",
+      "status": "de-active",
+      "description": "sdfgsdfgasd"
     },
     {
-      "id": 547456758,
+      "title": "Nadir ",
       "status": "active",
-      "title": "Faizan",
-      "description": "description"
+      "description": "Za N sara meena kawam",
+      "id": "1659550836519"
+    }
+  ],
+  "transactions": [
+    {
+      "accountNo": "501279027403",
+      "email": "nadirmehmood11@gmail.com",
+      "accountType": "current",
+      "id": "1659521159893",
+      "accountTitle": "Nadir Mehmood",
+      "iban": "pk1659521159893"
+    },
+    {
+      "accountNo": "501279027403",
+      "accountType": "current",
+      "id": "1659590698708",
+      "accountTitle": "Nadir Mehmood",
+      "email": "nadirmehmood11@gmail.com",
+      "iban": "pk1659590698708"
+    },
+    {
+      "accountNo": "",
+      "accountType": "",
+      "id": "AAn3M5U"
+    },
+    {
+      "accountNo": "501279027403",
+      "accountType": "current",
+      "id": "1659590983509",
+      "accountTitle": "Nadir Mehmood",
+      "email": "nadirmehmood11@gmail.com",
+      "iban": "pk1659590983509"
     }
   ]
 }

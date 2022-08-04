@@ -1,27 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import SidebarData from "../components/SidebarData";
 import "../components/Home.css";
 import { IconContext } from "react-icons";
+import { Table, Button } from "react-bootstrap";
 import axios from "axios";
+import CrudModal from "./CrudModal";
 
-const Users = () => {
-  const [sidebar, setSidebar] = useState(false);
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
+const Users = (props) => {
   const [userData, setUserData] = useState([]);
 
   const [users, setUsers] = useState([]);
 
-  const [showData, setShowData] = useState(false);
+  const [modalState, setModalState] = useState({
+    addUser: false,
+  });
 
-  const showSidebar = () => setSidebar(!sidebar);
-
-  const dataArray = async () => {
+  const getDataArray = async () => {
     const response = await axios.get("http://localhost:3001/data");
     setUserData(response.data);
   };
+
+  const updateStatus = async () => {
+    for (let i = 0; i < userData.length; i++) {
+      await axios.put(
+        `http://localhost:3001/data/${userData[i].id}`,
+        userData[i]
+      );
+    }
+    getDataArray();
+  };
+
   const usersArray = async () => {
     const userAdmin = await JSON.parse(sessionStorage.getItem("data"));
     let dd = [];
@@ -30,70 +39,84 @@ const Users = () => {
   };
 
   useEffect(() => {
-    dataArray();
+    setModalState(false);
+    getDataArray();
     usersArray();
   }, []);
 
+  const handleModal = (modalType) => {
+    if (modalType === "addUser") {
+      setModalState({
+        addUser: true,
+      });
+    }
+  };
+
+  const removeItem = async (id) => {
+    await axios.delete(`http://localhost:3001/data/${id}`);
+    getDataArray();
+  };
+
   return (
     <>
-      <IconContext.Provider value={{ color: "red" }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} className="toggle-btn" />
-          </Link>
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items">
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars" onClick={showSidebar}>
-                <AiIcons.AiOutlineClose />
-              </Link>
-            </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+      <IconContext.Provider value={{ color: "white" }}>
+        <Button type="button" onClick={() => handleModal("addUser")}>
+          Add User
+        </Button>
+        <Table hover variant="light">
+          <thead>
+            <tr>
+              <th scope="row">#</th>
+              <th scope="row">Id</th>
+              <th scope="row">Name</th>
+              <th scope="row">Status</th>
+              <th scope="row">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userData.map((item, index) =>
+              users.map((item) => (item.role === "admin" ? true : false)) ? (
+                <tr key={index}>
+                  <th scope="row">{index + 1}</th>
+                  <td>{item.id}</td>
+                  <td>{item.title}</td>
+                  <td>
+                    <select
+                      name="status"
+                      value={item.status}
+                      className="select-users"
+                      onChange={(e) => {
+                        userData[index].status = e.target.value;
+                        setUserData([...userData]);
+                      }}
+                    >
+                      <option value="active">active</option>
+                      <option value="de-active">de-active</option>
+                    </select>
+                  </td>
+
+                  <td>
+                    <Button onClick={updateStatus} variant="white">
+                      <AiFillEdit color="royalblue" size={30}></AiFillEdit>
+                    </Button>
+
+                    <Button onClick={() => removeItem(item.id)} variant="white">
+                      <AiFillDelete color="red" size={30}></AiFillDelete>
+                    </Button>
+                  </td>
+                </tr>
+              ) : null
+            )}
+          </tbody>
+        </Table>
+        {modalState && (
+          <CrudModal
+            modalState={modalState}
+            handleClose={() => setModalState(false)}
+            getDataArray={getDataArray}
+          />
+        )}
       </IconContext.Provider>
-      {/* <Home /> */}
-      <div className="show-data" onClick={() => setShowData(!showData)}>
-        <span style={{ fontSize: "25px" }}>Active Users</span>
-        {userData.map((item, index) => {
-          return users.map((item) => (item.role === "admin" ? true : false)) ? (
-            <>
-              {showData ? (
-                <div style={{ padding: "15px" }}>
-                  <div>
-                    <span style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      Name :--
-                    </span>
-                    {item.title}
-                  </div>
-                  <div>
-                    <span style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      Id :--
-                    </span>
-                    {item.id}
-                  </div>
-                  <div>
-                    <span style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      Status :--
-                    </span>
-                    {item.status}
-                  </div>
-                </div>
-              ) : null}
-            </>
-          ) : null;
-        })}
-      </div>
     </>
   );
 };
